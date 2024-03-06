@@ -214,8 +214,31 @@ console.log(starWarsCharacters)
   Utilizzando gli elementi presenti nell'array "femaleCharacters" rimuovi dall'array "charactersNames" le stringhe corrispondenti a personaggi con lo stesso nome.
   Una volta fatto crea un console.log per controllare la proprietà length di "charactersNames" prima e dopo l'operazione.
 */
+console.log("prova", charactersNames.length)
+
+femaleCharacters.forEach(femaleCharacter => {
+  const indexToRemove = charactersNames.indexOf(femaleCharacter.name);
+  if (indexToRemove !== -1) {
+      charactersNames.splice(indexToRemove, 1);
+  }
+});
+
+console.log("Lunghezza di charactersNames dopo l'operazione:", charactersNames.length);
 
 
 /* --EXTRA-- ESERCIZIO 10
   Crea una funzionalità che selezioni un elemento casuale dall'array "starWarsCharacters" e ne stampi in console le proprietà in modo discorsivo (a tuo piacimento).
 */
+function casualCharacters() {
+  const randomSelectionIndex = Math.floor(Math.random() * starWarsCharacters.length);
+  const randomCharacter = starWarsCharacters[randomSelectionIndex];
+
+  console.log(`Hai incontrato un personaggio di nome ${randomCharacter.name}.`);
+  console.log(`Questo personaggio ha i capelli ${randomCharacter.hair_color}, gli occhi ${randomCharacter.eye_color} e la pelle ${randomCharacter.skin_color}.`);
+  console.log(`Il personaggio è di genere ${randomCharacter.gender}.`);
+  console.log(`Ha un'altezza di ${randomCharacter.height} cm e una massa di ${randomCharacter.mass} kg.`);
+  console.log(`Il personaggio è nato nell'anno ${randomCharacter.birth_year}.`);
+}
+
+console.log("Personaggio casuale:");
+casualCharacters();
